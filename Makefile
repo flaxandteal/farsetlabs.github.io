@@ -10,7 +10,7 @@ run:
 	@EXISTS=$$(docker ps -a | grep "$(RUN_CONTAINER)" | awk '{ print $$1}'); \
 	if [ $$EXISTS ]; then \
 		echo "Reusing existing run container..."; \
-		docker start -ai $$EXISTS; \
+		docker start -t -i $$EXISTS; \
 	else \
 		echo "Starting a new run container..."; \
 		docker run \
